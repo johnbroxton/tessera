@@ -2,27 +2,30 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
+import users.models
+from django.conf import settings
 
 
 class Migration(migrations.Migration):
 
     dependencies = [
+        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
     operations = [
         migrations.CreateModel(
             name='CoordinateSystem',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, primary_key=True, auto_created=True)),
+                ('id', models.AutoField(primary_key=True, auto_created=True, verbose_name='ID', serialize=False)),
                 ('pythagorean', models.BooleanField(default=False)),
                 ('square_grid', models.BooleanField(default=False)),
                 ('customer_generated', models.BooleanField(default=False)),
             ],
         ),
         migrations.CreateModel(
-            name='Effects',
+            name='Effect',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, primary_key=True, auto_created=True)),
+                ('id', models.AutoField(primary_key=True, auto_created=True, verbose_name='ID', serialize=False)),
                 ('black_and_white', models.BooleanField(default=False)),
                 ('color_tint_value', models.BooleanField(default=False)),
                 ('color_tint_blue', models.BooleanField(default=False)),
@@ -39,44 +42,35 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='GeneratedImage',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, primary_key=True, auto_created=True)),
-                ('effects_id', models.ForeignKey(to='images.Effects')),
+                ('id', models.AutoField(primary_key=True, auto_created=True, verbose_name='ID', serialize=False)),
+                ('effects_id', models.ForeignKey(to='users.Effect')),
             ],
         ),
         migrations.CreateModel(
             name='GeneratedMosaic',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, primary_key=True, auto_created=True)),
-                ('coordinate_system', models.ForeignKey(to='images.CoordinateSystem')),
-                ('generated_image_id', models.ForeignKey(to='images.GeneratedImage')),
+                ('id', models.AutoField(primary_key=True, auto_created=True, verbose_name='ID', serialize=False)),
+                ('coordinate_system', models.ForeignKey(to='users.CoordinateSystem')),
+                ('generated_image_id', models.ForeignKey(to='users.GeneratedImage')),
             ],
         ),
         migrations.CreateModel(
-            name='Image',
+            name='Picture',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, primary_key=True, auto_created=True)),
-                ('file', models.ImageField(upload_to='')),
-                ('pixel_x_dimension', models.IntegerField()),
-                ('pixel_y_dimension', models.IntegerField()),
-                ('date_time_taken', models.DateTimeField()),
-                ('date_time_uploaded', models.DateTimeField()),
-                ('compression', models.CharField(max_length=30)),
-                ('exposure', models.FloatField()),
-                ('f_number', models.FloatField()),
-                ('color_space', models.CharField(max_length=30)),
+                ('id', models.AutoField(primary_key=True, auto_created=True, verbose_name='ID', serialize=False)),
             ],
         ),
         migrations.CreateModel(
             name='PrintMosaic',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, primary_key=True, auto_created=True)),
-                ('mosaic_id', models.ForeignKey(to='images.GeneratedMosaic')),
+                ('id', models.AutoField(primary_key=True, auto_created=True, verbose_name='ID', serialize=False)),
+                ('mosaic_id', models.ForeignKey(to='users.GeneratedMosaic')),
             ],
         ),
         migrations.CreateModel(
-            name='Ratios',
+            name='Ratio',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, primary_key=True, auto_created=True)),
+                ('id', models.AutoField(primary_key=True, auto_created=True, verbose_name='ID', serialize=False)),
                 ('square', models.BooleanField(default=False)),
                 ('golden_ratio_lndscp', models.BooleanField(default=False)),
                 ('golden_ratio_port', models.BooleanField(default=False)),
@@ -86,27 +80,44 @@ class Migration(migrations.Migration):
                 ('ratio_5_to_4', models.BooleanField(default=False)),
                 ('ratio_5_to_7', models.BooleanField(default=False)),
                 ('ratio_7_to_5', models.BooleanField(default=False)),
-                ('image_id', models.ForeignKey(to='images.Image')),
             ],
+        ),
+        migrations.CreateModel(
+            name='UserProfile',
+            fields=[
+                ('id', models.AutoField(primary_key=True, auto_created=True, verbose_name='ID', serialize=False)),
+                ('file', models.ImageField(null=True, blank=True, upload_to=users.models.image_upload)),
+                ('user_extended', models.OneToOneField(to=settings.AUTH_USER_MODEL)),
+            ],
+        ),
+        migrations.AddField(
+            model_name='ratio',
+            name='image_id',
+            field=models.ForeignKey(to='users.UserProfile'),
         ),
         migrations.AddField(
             model_name='printmosaic',
             name='ratio_id',
-            field=models.ForeignKey(to='images.Ratios'),
+            field=models.ForeignKey(to='users.Ratio'),
+        ),
+        migrations.AddField(
+            model_name='picture',
+            name='image_id',
+            field=models.ForeignKey(to='users.UserProfile'),
         ),
         migrations.AddField(
             model_name='generatedimage',
             name='image_id',
-            field=models.ForeignKey(to='images.Image'),
+            field=models.ForeignKey(to='users.UserProfile'),
         ),
         migrations.AddField(
             model_name='generatedimage',
             name='ratios_id',
-            field=models.ForeignKey(to='images.Ratios'),
+            field=models.ForeignKey(to='users.Ratio'),
         ),
         migrations.AddField(
-            model_name='effects',
+            model_name='effect',
             name='image_id',
-            field=models.ForeignKey(to='images.Image'),
+            field=models.ForeignKey(to='users.UserProfile'),
         ),
     ]

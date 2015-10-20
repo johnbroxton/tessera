@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+
+{% block title %} Upload {% endblock %}
+
+{% block head %}
+
+		<!-- Dependencies -->
+		<script src="{% static "js/jquery.js" %}"></script>
+        <script src="{% static "js/jquery-ui.js" %}"></script>
+
+        <!-- jQuery Touch Punch -->
+        <script src="{% static "js/jquery-touch.js" %}"></script>
+
+        <!-- jQuery.Shapeshift -->
+         <script src="{% static "js/jquery-shapeshift.js" %}"></script>
+
+        <script>
+            $(document).ready(function() {
+                $(".container").shapeshift({
+                    gutterX: -1, // Compensate for border width
+                    gutterY: -1, // Compensate for border width
+                    paddingX: 0,
+                    paddingY: 0,
+
+                 });
+            })
+        </script>
+
+{% endblock %}
+
+{% block header %} TESSERA {% endblock %}
+
+{% block content %}
+
+
+                        <div class="container">
+
+                                {% for image in image_set %}
+                                    <img src="{% static image.file %}">
+                                {% endfor %}
+
+                        </div>
+{% endblock %}
+
+    {% block footer %}
+                        <div class="upload-form">
+
+                            <form method="POST" action='/mosaic/' id="message"
+                                  enctype="multipart/form-data"></br>
+                                {% csrf_token %}
+
+                                <label for="title">Upload More Images</label></br>
+                                <input type="file" name="new_image" class="image"/></br>
+
+
+                                <input type="submit" value="Submit image"
+                                       class="submitButton" /></br>
+                            </form>
+
+                        </div>
+
+    {% endblock %}
+
+
+
+
+
+						
+
+
+					
+
+
+
+
+

@@ -1,0 +1,5 @@
+Django==1.8
+django-multiupload==0.5
+Pillow==2.9.0
+psycopg2==2.6.1
+virtualenv==13.1.2

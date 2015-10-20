@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+
+{% block title %} Tessera {% endblock %}
+
+{% block header %} Welcome to Tessera {% endblock %}
+
+{% block content %}
+
+    <div>
+        <ul class="index">
+            <li><a href="/login/">Sign In</a></li>
+            <li><a href="/register/">Sign Up</a></li>
+        </ul>
+    </div>
+
+{% endblock %}
