@@ -46,16 +46,16 @@
     {% block footer %}
                         <div class="upload-form">
 
-                            <form method="POST" action='/mosaic/' id="message"
-                                  enctype="multipart/form-data"></br>
+                            <form method="POST" action='/upload/' id="message"
+                                  enctype="multipart/form-data"><br>
                                 {% csrf_token %}
 
-                                <label for="title">Upload More Images</label></br>
-                                <input type="file" name="new_image" class="image"/></br>
+                                <label for="title">Upload More Images</label><br>
+                                <input type="file" name="new_image" class="image"/><br>
 
 
                                 <input type="submit" value="Submit image"
-                                       class="submitButton" /></br>
+                                       class="submitButton" /><br>
                             </form>
 
                         </div>

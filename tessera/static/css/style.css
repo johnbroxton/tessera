@@ -5,7 +5,8 @@
 *
 {
   font-family: 'News Cycle', sans-serif;
-  color: #f9f9f9;
+  font-size: 1em;
+  color: #888;
 }
 
 .headings, h1, h2, h3, a {
@@ -17,11 +18,11 @@
 
 h1 {
   font-weight: bold;
-  font-size: 16px;
-  line-height: 16px;
+  font-size: 20px;
+  line-height: 20px;
   color: #fff;
   text-align: center;
-  padding-bottom: 25px;
+  padding: 20px 0 25px 0;
 }
 
 h1 span {
@@ -30,7 +31,7 @@ h1 span {
 
 h2 {
   font-weight: 300;
-  font-size: 12px;
+  font-size: 18px;
   color: #fff;
 }
 
@@ -46,6 +47,8 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  background-image: url("/static/montage_1.png");
+
 }
 
 .wrapper {
@@ -59,30 +62,38 @@ body {
 
 .upload-form {
   text-align: center;
+  font-size: 1em;
+}
+
+.upload-form label {
+  padding: 0 0 10px 0;
 }
 
 .image {
   text-align: center;
-  width: 150px;
+  width: 200px;
 }
 
 .submitButton {
   background-color: #212121;
   border: hidden;
+  padding: 5px 5px;
 }
 
 /* Index Page */
 
 .index {
-  background-image: url("background.jpg");
-  display: inline-block;
+  text-align: center;
 }
+ li {
+   padding: 25px 0;
+ }
 
 .input {
   background-color: #000;
   text-transform: uppercase;
-  font-size: 16px;
-  line-height: 16px;
+  font-size: 20px;
+  line-height: 20px;
   font-style: normal;
   text-align: center;
 }
@@ -97,11 +108,11 @@ header.title-top {
   color: #fff;
 }
 
-header.title-top .titles {
-  width: 75%;
-  float: left;
-  position: relative;
-  margin: 0 0 0 25px; }
+/*header.title-top .titles {*/
+  /*width: 75%;*/
+  /*float: left;*/
+  /*position: relative;*/
+  /*margin: 0 0 0 25px; }*/
 
 header.title-top .titles:before {
   content: '/';
@@ -139,7 +150,6 @@ header.title-top nav a {
   margin-right: 25px; }
 
 .nav-main:after {
-  content: '/';
   font-size: 40px;
   line-height: 40px;
   position: absolute;
@@ -158,12 +168,12 @@ header.title-top nav a {
   width: 100%;
 }
 
-.holdfast-double > div,
-.holdfast-double img {
-  display: block;
-  float: left;
-  width: 50%;
-}
+/*.holdfast-double > div,*/
+/*.holdfast-double img {*/
+  /*display: block;*/
+  /*float: left;*/
+  /*width: 50%;*/
+/*}*/
 
 article header h1, article header h2, article header h3, article header h4, .about h1,
 footer h1, .about h2,
@@ -353,7 +363,7 @@ footer p a {
 .container {
   /*border: 1px dashed #CCC;*/
   position: relative;
-  width: 50%;
+  width: 65%;
   margin: auto;
 
 }

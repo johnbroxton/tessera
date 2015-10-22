@@ -66,10 +66,6 @@ class GeneratedImage(models.Model):
     effects_id = models.ForeignKey(Effect)
     ratios_id = models.ForeignKey(Ratio)
 
-class CoordinateSystem(models.Model):
-    pythagorean = models.BooleanField(default=False)
-    square_grid = models.BooleanField(default=False)
-    customer_generated = models.BooleanField(default=False)
 
 class GeneratedMosaic(models.Model):
     generated_image_id = models.ForeignKey(GeneratedImage)

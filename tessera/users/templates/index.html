@@ -1,9 +1,15 @@
 {% extends "base.html" %}
 {% load static from staticfiles %}
 
+{% block head %}
+    <style type="text/css">
+        body { background-image:url("/static/montage_1.png)") }
+    </style>
+{% endblock %}
+
 {% block title %} Tessera {% endblock %}
 
-{% block header %} Welcome to Tessera {% endblock %}
+{% block header %} Tessera Design {% endblock %}
 
 {% block content %}
 

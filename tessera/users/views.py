@@ -120,8 +120,9 @@ def user_login(request):
 
 def profile(request, pk):
     userp = UserProfile.objects.get(pk=pk)
-    images = Picture.objects.filter(user = pk)
-    print("images")
+    user_id = userp.user_extended.id
+    images = Picture.objects.filter(user_id = user_id)
+    print(images)
     return render(request, 'mosaic.html', {'image_set':images})
 
 
@@ -130,9 +131,12 @@ def upload(request):
     if request.method == "POST":
         form = Picture()
         form.file = request.FILES['new_image']
+        form.user = request.user
         form.save()
+    usr_id = request.user.id
+    profile = UserProfile.objects.get(user_extended = usr_id)
 
-    return render(request, 'mosaic.html', {'form':form})
+    return HttpResponseRedirect('/mosaic/'+str(profile.id))
 
 # def mosaic(request):
 #     return render(request, 'mosaic.html')
