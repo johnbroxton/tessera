@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static from staticfiles %}
 
-{% block title %} Upload {% endblock %}
+{% block title %} Tessera | Mosaic {% endblock %}
 
 {% block head %}
 
@@ -15,50 +15,70 @@
         <!-- jQuery.Shapeshift -->
          <script src="{% static "js/jquery-shapeshift.js" %}"></script>
 
-        <script>
-            $(document).ready(function() {
-                $(".container").shapeshift({
-                    gutterX: -1, // Compensate for border width
-                    gutterY: -1, // Compensate for border width
-                    paddingX: 0,
-                    paddingY: 0,
-
-                 });
-            })
-        </script>
 
 {% endblock %}
 
-{% block header %} TESSERA {% endblock %}
+{% block header %}
+
+    <header id="heading">
+        <hgroup class="grid g4">
+          <h1>Tessera | Images</h1>
+        </hgroup>
+        <nav class="grid g6">
+            <ul>
+                <li><a href="{% url 'logout' %}">Log Out</a></li>
+                <li><a href="/about/">About</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+
+{% endblock %}
 
 {% block content %}
 
+        <div id="content"  class="grid">
 
                         <div class="container">
+                            <ul>
 
                                 {% for image in image_set %}
-                                    <img src="{% static image.file %}">
+
+                                        <li><img src="{% static image.file %}"></li>
+
                                 {% endfor %}
+                            </ul>
 
                         </div>
+
+
+        </div>
 {% endblock %}
 
     {% block footer %}
-                        <div class="upload-form">
+        <footer class="footer">
+        <div id="footer"  class="grid g4">
 
-                            <form method="POST" action='/upload/' id="message"
-                                  enctype="multipart/form-data"><br>
-                                {% csrf_token %}
+        <form method="POST" action='/upload/' id="message"
+              enctype="multipart/form-data">
+            {% csrf_token %}
 
-                                <label for="title">Upload More Images</label><br>
-                                <input type="file" name="new_image" class="image"/><br>
+            <ul class="upload">
+                <li>
+                    <label for="title">Upload More Images</label>
+                </li>
+                <li>
+                    <input type="file" name="new_image" class="image"/>
+                </li>
+                <li>
+                    <input type="submit" value="Submit image" class="submitButton" />
+                </li>
+            </ul>
+        </form>
+        </div>
+        </footer>
 
-
-                                <input type="submit" value="Submit image"
-                                       class="submitButton" /><br>
-                            </form>
-
-                        </div>
 
     {% endblock %}
 

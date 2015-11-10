@@ -8,30 +8,13 @@ def image_upload(instance, filename):
 class Picture(models.Model):
     file = models.ImageField(upload_to=image_upload, blank=True, null=True)
     user = models.ForeignKey(User)
-    # image_id = models.ForeignKey(UserProfile)
-    # pixel_x_dimension = models.IntegerField()
-    # pixel_y_dimension = models.IntegerField()
-    # date_time_taken = models.DateTimeField()
-    # date_time_uploaded = models.DateTimeField()
-    # compression = models.CharField(max_length=30)
-    # exposure = models.FloatField()
-    # f_number = models.FloatField()
-    # color_space = models.CharField(max_length=30)
-
 
 class UserProfile(models.Model):
     user_extended = models.OneToOneField(User)
-    # file = models.ImageField(upload_to=image_upload, blank=True, null=True)
-    # image = models.ManyToManyField(Picture)
 
     def __str__(self):
         return self.user_extended.username
 
-
-# class PictureForm(ModelForm):
-#     class Meta:
-#         model = UserProfile
-#         fields = "__all__"
 
 class Effect(models.Model):
     image_id = models.ForeignKey(UserProfile)
@@ -69,7 +52,6 @@ class GeneratedImage(models.Model):
 
 class GeneratedMosaic(models.Model):
     generated_image_id = models.ForeignKey(GeneratedImage)
-    coordinate_system = models.ForeignKey(CoordinateSystem)
 
 class PrintMosaic(models.Model):
     mosaic_id = models.ForeignKey(GeneratedMosaic)

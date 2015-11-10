@@ -12,6 +12,7 @@ class UserForm(forms.ModelForm):
 
 class UserProfileForm(forms.ModelForm):
     user_extended = forms.CharField(required=False)
+
     class Meta:
         model = UserProfile
         fields = ('user_extended',)

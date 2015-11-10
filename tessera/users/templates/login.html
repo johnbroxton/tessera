@@ -3,18 +3,60 @@
 
 {% block title %} Sign In {% endblock %}
 
-{% block header %} Sign In {% endblock %}
+{% block header %}
+
+    <header id="heading">
+        <hgroup class="grid g4">
+          <h1>Tessera | Sign In</h1>
+        </hgroup>
+        <nav class="grid g6">
+            <ul>
+                <li><a href="/register/">Sign Up</a></li>
+                <li><a href="/about/">About</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+
+ {% endblock %}
 
 {% block content %}
 
-        <form id="login_form" method="post" action="/login/">
+    <div id="content"  class="grid">
+
+        {% if registered %}
+        <strong>thank you for registering!</strong>
+        <a href="/tessera/">Return to the homepage.</a><br />
+        {% else %}
+
+
+        <form class="login_form" id="login_form" method="post" action="/login/">
             {% csrf_token %}
             Username: <input type="text" name="username" value="" size="50" />
             <br />
-            Password: <input type="password" name="password" value="" size="50" />
+            Password: <input type="password" name="password" value="" size="50" class="password" />
             <br />
 
-            <input type="submit" value="submit" />
+            <input type="submit" value="submit" class="password" />
         </form>
+        {% endif %}
+
+    </div>
 
 {% endblock %}
+
+{% block footer %}
+    <footer>
+        <div id="footer" class="grid">
+                    <ul>
+                        <li><a href=# data-target="_blank">Twitter</a></li>
+                        <li><a href=# data-target="_blank">Instagram</a></li>
+                        <li><a href=# data-target="_blank">Pinterest</a></li>
+                        <li><a href=# data-target="_blank">VSCO</a></li>
+                    </ul>
+        </div>
+    </footer>
+
+{% endblock %}
+

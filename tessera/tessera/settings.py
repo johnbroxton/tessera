@@ -64,6 +64,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -120,3 +121,8 @@ try:
     from .local_settings import *
 except ImportError:
     pass
+
+#redirect for unauthorized users
+
+LOGIN_URL = '/login/'
+# LOGIN_REDIRECT_URL

@@ -15,23 +15,26 @@
 		<meta name="viewport" content="width=device-width, user-scalable=no">
 
 		<!-- CSS -->
-		<link rel="stylesheet" href="{% static "css/reset.css" %}">
-		<link rel="stylesheet" href="{% static "css/style.css" %}">
+
+        <link rel="stylesheet" href="{% static "css/styles.css" %}">
 
         <!-- Fonts -->
 		<link href='https://fonts.googleapis.com/css?family=News+Cycle:400,700' rel='stylesheet' type='text/css'>
 
 	</head>
 
-    <body>
-        <h1>{% block header %}{% endblock %}</h1>
+    <body class="index">
+        <div id="wrapper">
 
-        <div id="wrapper">{% block content %}{% endblock %}</div>
+            {% block header %}
+            {% endblock %}
 
-        <footer>
+            {% block content %}
+            {% endblock %}
+
+        </div>
+
             {% block footer %}{% endblock %}
-            <p>&copy; 2015 Tessera | <a href="https://www.johnbroxton.com">John Broxton</a></p>
-        </footer>
     </body>
 
 </html>

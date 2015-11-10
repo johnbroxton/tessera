@@ -1,0 +1,412 @@
+/****** Tessera Web Application ******/
+/********** by John Broxton **********/
+
+/* @Reset */
+
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0 0 0 0;
+  width: 100%;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+body,
+div,
+dl,dt,dd,
+ul,ol,li,
+h1,h2,h3,h4,h5,h6,
+pre,
+form,fieldset,
+input,textarea,
+a,
+p,blockquote,
+th,td {
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+img {
+   border: 0
+}
+
+article > img {
+    height: 200px;
+}
+
+.index-image {
+    height: 75px;
+    width: 75px;
+}
+
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+font-style: normal;
+font-weight: normal;
+}
+
+ol,ul {
+list-style: none;
+}
+
+h1,h2,h3,h4,h5,h6,li {
+font-size: 100%;
+font-weight: normal;
+text-transform: uppercase;
+letter-spacing: 2px;
+line-height: 14px;
+}
+
+li {
+  padding: 0 15px 0 0;
+}
+
+
+/* ---------------------------------- */
+
+/* @HTML5 */
+
+article,aside,canvas,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section,summary, mark {  
+  display:block;
+}
+
+
+/* ---------------------------------- */
+
+/* @Global */
+
+* {
+    line-height: 18px;
+    font-size: 14px;
+    font-family: 'News Cycle', sans-serif;
+    font-weight: normal;
+    font-style: normal;
+}
+
+p {
+    margin: 10px 10px 0 20px;
+    font-family: 'News Cycle', sans-serif;
+    color: #4d4d4d;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+figure {
+    margin: 0 0 20px 0;
+}
+
+.index p {
+    min-height: 50px;
+}
+
+.input {
+    margin: 10px 10px 0 20px;
+}
+
+a {
+    color: #212121;
+    text-decoration: none;
+    line-height: 18px;
+}
+
+a:hover {
+    color: #999;
+}
+
+
+h1 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+h1 em, h2 em {
+    font-weight: normal;
+}
+
+ul {
+    display: inline;
+}
+
+#message {
+    text-align: left;
+}
+
+.login_form {
+    padding: 0 0 10px 30px;
+}
+
+.password {
+    margin: 10px 0 0 0;
+}
+
+/* Container */
+
+.container {
+    position: relative;
+    width: 100%;
+    margin: 0 0 0 20px;
+}
+
+.container li img {
+    position: relative;
+    height: 100px;
+    width: 100px;
+    padding: 0 0 15px 0;
+
+}
+
+.container > div > img {
+    height: 100px;
+    width: 100px;
+}
+
+.container > .ss-placeholder-child {
+    background: transparent;
+    border: 1px dashed blue;
+}
+
+/* @Page */
+
+
+body {
+  background: #fff;
+}
+
+#wrapper {
+  margin: 0 0 0 0;
+  width: 100%;
+}
+
+/* ---------------------------------- */
+
+/* @Grid */
+
+
+.grid {
+  float: left;
+  margin: 0 25px 0 0 ;
+
+}
+
+  .g1 { width: 50px; }
+  .g2 { width: 125px; }
+  .g3 { width: 200px; }
+  .g4 { width: 275px; }
+  .g5 { width: 350px; }
+  .g6 { width: 425px; }
+  .g7 { width: 500px; }
+  .g8 { width: 575px; }
+  .g9 { width: 650px; }
+  .g10 { width: 725px; }
+  .g11 { width: 800px; }
+  .g12 { width: 875px; }
+  .g13 { width: 950px; }
+  .g14 { width: 1025px; }
+
+
+
+
+/* ---------------------------------- */
+
+/* @Layout */
+
+#heading {
+    position: absolute;
+    padding: 25px 0 12px 50px;
+    background: #fff;
+    height: 100px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+
+#heading h1 {
+    font-weight: bold;
+    padding: 0 0 0 0;
+}
+
+ @media only screen and (max-width : 420px) {
+
+  }
+
+  article {
+    margin: 0 0 50px 0;
+    min-height: 250px;
+  }
+
+  nav {
+    position: relative;
+    z-index: 9999
+  }
+
+li {
+    display: inline;
+  }
+
+
+
+#content {
+    position: relative;
+    padding: 100px 0 0 0;
+    width: 100%;
+    border-bottom: 20px solid #fff
+}
+
+footer {
+    position: relative;
+    padding: 20px 0 0 0;
+    border-bottom: 20px solid #fff;
+    height: 25px;
+    margin-left: 40%;
+}
+
+.footer {
+    margin-left: 50px;
+}
+
+.g3 p {
+  width: 82%;
+}
+
+.g6 p {
+  width: 82%;
+}
+
+
+section {
+    padding: 50px 0 50px 50px;
+    background: #fff;
+    position: relative;
+}
+section:last-child {
+border: 0;
+}
+
+section p,
+section a,
+section h1 {
+color: #000 ;
+}
+
+section {
+
+}
+
+
+section h1{
+color: #000 ;
+}
+
+section p {
+color: #4d4d4d;
+}
+
+section a {
+color: #999;
+}
+
+section a:hover {
+color: #444;
+}
+
+
+
+
+
+
+section a.launch:hover {
+    color: #000;
+}
+
+section a.launch:hover em{
+padding-left: 15px;
+}
+
+section a.aux,
+section a.aux:hover {
+border: 0;
+}
+
+section>header {
+margin: 0 0 55px 0;
+}
+
+.articles {
+float: left;
+}
+
+section>header a{
+color: #555;
+font-style: italic;
+font-size: 13px;
+border-bottom: 1px solid #ccc;
+padding: 0 0 3px 0;
+}
+
+section._active>header a{
+color: #000;
+}
+
+
+#new h1 {
+font-size: 20px;
+
+}
+
+#new p {
+font-size: 20px;
+line-height: 30px;
+}
+
+/* @Clear */
+
+.clear-self:after 
+{ 
+  content: " ";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+  margin-bottom: 0;
+}
+
+.clear-self 
+{ 
+  display: block;
+}
+
+html[xmlns] .clear-self 
+{ 
+  display: block;
+}
+
+* html .clear-self 
+{ 
+  height: 1%;
+}
+
+
+
